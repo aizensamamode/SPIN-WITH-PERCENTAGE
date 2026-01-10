@@ -1,0 +1,9 @@
+# information about this mini project
+
+GOAL LEVEL
+
+LEVEL 1
+
+CREATE A SPIN MENU AND CREATE 3 ITEMS PUT PERCENTAGE EACH ITEM 20% 50% 30%
+
+LEVEL 2
