@@ -5,6 +5,7 @@ public class Main{
     static Random random = new Random();
     String name;
     String percentage;
+    static int rare = 0, common = 0, epic = 0; //will use later to show how many did the item shows to see if things are working
 
 
     static Main [] storage_of_items = {
@@ -40,6 +41,13 @@ public class Main{
         Main item;
         item = storage_of_items[random.nextInt(storage_of_items.length)];
         System.out.println(item.name+" "+item.percentage);
+        if(item.name.equalsIgnoreCase("common")){
+        common += 1;
+        }if(item.name.equalsIgnoreCase("rare")){
+        rare += 1;
+        }else{
+        epic += 1;
+        }
     }
 
      
@@ -60,7 +68,6 @@ public class Main{
         int num = menu(scan);
         if(num == 1){  // if player choose 1
         Spin();
-
         }else{
             System.out.println("try again!!"); // wrong input
         }
