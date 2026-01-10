@@ -4,19 +4,20 @@ import java.util.Random;
 public class Main{
     static Random random = new Random();
     String name;
-    String percentage;
+    int percentage;
+    static int total = 0;
     static int rare = 0, common = 0, epic = 0; //will use later to show how many did the item shows to see if things are working
 
 
     static Main [] storage_of_items = {
-        new Main("RARE", "30%"),
-        new Main("COMMON", "20%"),
-        new Main("EPIC", "50%")
+        new Main("RARE", 15),
+        new Main("COMMON",50),
+        new Main("EPIC", 5)
     }; 
 
 
     //constructor
-    Main (String name, String percentage){
+    Main (String name, int percentage){
     this.name = name;
     this.percentage = percentage;
     }  
@@ -37,17 +38,41 @@ public class Main{
     //This is SPIN. this called when player choose 1
     //this is a method
     static void Spin(){
-        // this method i called and it spin a random item in storage and return the item but
-        Main item;
-        item = storage_of_items[random.nextInt(storage_of_items.length)];
-        System.out.println(item.name+" "+item.percentage);
-        if(item.name.equalsIgnoreCase("common")){
-        common += 1;
-        }if(item.name.equalsIgnoreCase("rare")){
-        rare += 1;
-        }else{
-        epic += 1;
+        //code for adding up all items
+        total = 0;
+        for(Main item  : storage_of_items){
+        total += item.percentage;
         }
+        
+
+        int randomize_item_base_total = random.nextInt(total);
+
+        int checking_the_item = 0;
+        for(Main item : storage_of_items){
+            checking_the_item += item.percentage;
+            System.out.println(checking_the_item + " this is checking the item total");
+            System.out.println(randomize_item_base_total + " this si the random");
+            if (randomize_item_base_total < checking_the_item) {
+                System.out.println(item.name+"ANSWER");
+                
+                if(item.name.equalsIgnoreCase("common")){
+                    common ++; // if user gets common it will add +1 to common to show it alrdy shows
+                    }else if(item.name.equalsIgnoreCase("rare")){
+                    rare ++;
+                    }else{
+                    epic ++;
+                    }
+                
+                break;
+                    
+            }   
+        }
+
+
+        // this method i called and it spin a random item in storage and return the item but
+        /*Main item;
+        item = storage_of_items[random.nextInt(storage_of_items.length)];
+        */
     }
 
      
@@ -68,8 +93,11 @@ public class Main{
         int num = menu(scan);
         if(num == 1){  // if player choose 1
         Spin();
-        }else{
-            System.out.println("try again!!"); // wrong input
+        }else if(num == 2){
+            System.out.println("-[ITEMS]-  |  -[TOTAL]-");
+            System.out.println(Main.storage_of_items[0].name+"       |  "+ epic);
+            System.out.println(Main.storage_of_items[1].name+"     |  "+ epic);
+            System.out.println(Main.storage_of_items[2].name+"       |  "+ epic);
         }
         
     }
