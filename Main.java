@@ -53,7 +53,7 @@ public class Main{
             System.out.println(checking_the_item + " this is checking the item total");
             System.out.println(randomize_item_base_total + " this si the random");
             if (randomize_item_base_total < checking_the_item) {
-                System.out.println(item.name+"ANSWER");
+                System.out.println(item.name+" ANSWER BECAUSE "+randomize_item_base_total+" < "+checking_the_item);
                 
                 if(item.name.equalsIgnoreCase("common")){
                     common ++; // if user gets common it will add +1 to common to show it alrdy shows
