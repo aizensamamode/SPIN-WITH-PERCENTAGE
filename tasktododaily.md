@@ -41,7 +41,7 @@ when player press enter it will go to casino menu 2
 this display the user name from casino menu 1 variable
 this display user money
 
-this will display 
+this will display sa
 
 
 
